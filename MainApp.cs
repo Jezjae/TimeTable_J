@@ -107,40 +107,10 @@ namespace TimeTable_J
                                                 if (copyList1[i].major.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList1[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList1[i]);
 
                                                 } //검색어 포함여부
 
-                                              
                                             }
 
                                             if (isResultSearch)
@@ -163,8 +133,8 @@ namespace TimeTable_J
                                                             if (selecClass.Count == 0) // 수강신청 리스트가 비어있을때
                                                             {
                                                                 selecClass.Add(copyList1[i]); //수강신청 목록 담기
-
                                                                 copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("   수강신청 !!성공!!");
@@ -200,7 +170,6 @@ namespace TimeTable_J
                                                                 creditPlace = 24.0 - selectClassCredit;
 
                                                                 //시간 중복 작업
-
                                                                check = true;
                                                                tempTime = copyList1[i].time;
                                                                timeOverlap();
@@ -208,7 +177,6 @@ namespace TimeTable_J
                                                                 bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-
                                                                     if (check == false)
                                                                     {
                                                                         Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
@@ -224,46 +192,14 @@ namespace TimeTable_J
                                                                                 break;
                                                                             }
 
-                                                                            /*
-                                                                                if (selecClass[j].className != copyList1[i].className && check == true)
-                                                                            {
-                                                                                selecClass.Add(copyList1[i]); //수강신청 목록 담기
-                                                                                copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
-                                                                                makeTimeTable();
-
-                                                                                Console.WriteLine();
-                                                                                Console.WriteLine("   수강신청 !!성공!!");
-                                                                                Console.WriteLine();
-                                                                                Console.WriteLine();
-                                                                                Console.WriteLine("   Enter를 눌러주세요.");
-                                                                                Console.ReadLine();
-
-                                                                                ischeck6 = false;
-                                                                                ischeck5 = false;
-                                                                                ischeck4 = false;
-                                                                                ischeck3 = false;
-                                                                                ischeck2 = false;
-                                                                                break;
-                                                                            }
-                                                                            else if (selecClass[j].className == copyList1[i].className)
-                                                                            {
-                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                                break;
-                                                                            }
-                                                                            else if (check == false)
-                                                                            {
-                                                                                Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                                break;
-                                                                            }
-                                                                                */
                                                                         }
 
                                                                         if (isSubjectEqual == false)
                                                                         {
-
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             selecClass.Add(copyList1[i]); //수강신청 목록 담기
                                                                             copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
-                                                                            makeTimeTable();
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -279,8 +215,6 @@ namespace TimeTable_J
                                                                             ischeck2 = false;
                                                                         }
                                                                     }
-                                                                    
-
                                                                 }
                                                                 else
                                                                 {
@@ -346,36 +280,7 @@ namespace TimeTable_J
                                                 if (copyList1[i].classNum.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList1[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList1[i]);
 
                                                 } //검색어 포함여부
 
@@ -401,8 +306,8 @@ namespace TimeTable_J
                                                             if (selecClass.Count == 0) // 수강신청 리스트가 비어있을때
                                                             {
                                                                 selecClass.Add(copyList1[i]); //수강신청 목록 담기
-
                                                                 copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("   수강신청 !!성공!!");
@@ -441,14 +346,32 @@ namespace TimeTable_J
                                                                 tempTime = copyList1[i].time;
                                                                 timeOverlap();
 
+                                                                bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-                                                                    for (int j = 0; j < selecClass.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (selecClass[j].className != copyList1[i].className && check == true)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < selecClass.Count; j++)
+                                                                        {
+                                                                            if (selecClass[j].className == copyList1[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
                                                                         {
                                                                             selecClass.Add(copyList1[i]); //수강신청 목록 담기
                                                                             copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
+                                                                            makeTimeTable(); // 시간표 작성
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -462,18 +385,6 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (selecClass[j].className == copyList1[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-
-                                                                        else if (check == false)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
@@ -540,36 +451,7 @@ namespace TimeTable_J
                                                 if (copyList1[i].className.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList1[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList1[i]);
 
                                                 } //검색어 포함여부
 
@@ -597,6 +479,9 @@ namespace TimeTable_J
                                                                 selecClass.Add(copyList1[i]); //수강신청 목록 담기
 
                                                                 copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
+
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("   수강신청 !!성공!!");
@@ -635,14 +520,31 @@ namespace TimeTable_J
                                                                 tempTime = copyList1[i].time;
                                                                 timeOverlap();
 
+                                                                bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-                                                                    for (int j = 0; j < selecClass.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (selecClass[j].className != copyList1[i].className && check == true)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < selecClass.Count; j++)
+                                                                        {
+                                                                            if (selecClass[j].className == copyList1[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
                                                                         {
                                                                             selecClass.Add(copyList1[i]); //수강신청 목록 담기
                                                                             copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                            makeTimeTable(); // 시간표 작성
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -656,17 +558,6 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (selecClass[j].className == copyList1[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-                                                                        else if (check == false)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
@@ -733,36 +624,7 @@ namespace TimeTable_J
                                                 if (copyList1[i].grade.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList1[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList1[i]);
 
                                                 } //검색어 포함여부
 
@@ -788,8 +650,8 @@ namespace TimeTable_J
                                                             if (selecClass.Count == 0) // 수강신청 리스트가 비어있을때
                                                             {
                                                                 selecClass.Add(copyList1[i]); //수강신청 목록 담기
-
                                                                 copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("   수강신청 !!성공!!");
@@ -828,14 +690,32 @@ namespace TimeTable_J
                                                                 tempTime = copyList1[i].time;
                                                                 timeOverlap();
 
+                                                                bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-                                                                    for (int j = 0; j < selecClass.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (selecClass[j].className != copyList1[i].className && check == true)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < selecClass.Count; j++)
+                                                                        {
+                                                                            if (selecClass[j].className == copyList1[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
                                                                         {
                                                                             selecClass.Add(copyList1[i]); //수강신청 목록 담기
                                                                             copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
+                                                                            makeTimeTable(); // 시간표 작성
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -849,17 +729,6 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (selecClass[j].className == copyList1[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-                                                                        else if (check == false)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
@@ -926,36 +795,7 @@ namespace TimeTable_J
                                                 if (copyList1[i].professor.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList1[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList1[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList1[i]);
 
                                                 } //검색어 포함여부
 
@@ -983,6 +823,8 @@ namespace TimeTable_J
                                                                 selecClass.Add(copyList1[i]); //수강신청 목록 담기
 
                                                                 copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("   수강신청 !!성공!!");
@@ -1022,14 +864,31 @@ namespace TimeTable_J
                                                                 tempTime = copyList1[i].time;
                                                                 timeOverlap();
 
+                                                                bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-                                                                    for (int j = 0; j < selecClass.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (selecClass[j].className != copyList1[i].className && check == true)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < selecClass.Count; j++)
+                                                                        {
+                                                                            if (selecClass[j].className == copyList1[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
                                                                         {
                                                                             selecClass.Add(copyList1[i]); //수강신청 목록 담기
                                                                             copyList1.Remove(copyList1[i]); //수강신청 카피본에서 삭제
+                                                                            makeTimeTable(); // 시간표 작성
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -1043,19 +902,7 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
                                                                         }
-                                                                        else if (selecClass[j].className == copyList1[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-                                                                        else if (check == false)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-
                                                                     }
                                                                 }
                                                                 else
@@ -1108,48 +955,17 @@ namespace TimeTable_J
                                         Console.WriteLine("   관심과목으로 수강신청하기");
                                         Console.WriteLine();
 
-                                        string searchClass = "";
-
                                         ischeck5 = true;
                                         bool isResultSearch = false;
                                         while (ischeck5 == true)
                                         {
                                             isResultSearch = false;
-                                            searchClass = Console.ReadLine();
 
                                             for (int i = 0; i < interestedSelec.Count; i++)
                                             {
                                                 isResultSearch = true;
 
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(interestedSelec[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(interestedSelec[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(interestedSelec[i]);
                                             }
 
                                             if (isResultSearch)
@@ -1171,12 +987,21 @@ namespace TimeTable_J
                                                             if (selecClass.Count == 0) // 수강신청 리스트가 비어있을때
                                                             {
                                                                 selecClass.Add(interestedSelec[i]); //수강신청 목록 담기
+                                                                makeTimeTable(); // 시간표 작성
 
                                                                 for (int m = 0; m < copyList1.Count; m++)
                                                                 {
-                                                                    if (copyList1[m].number == selcNum)
+                                                                    if (copyList1[m].number == selcNum && copyList2[m].number == selcNum)
                                                                     {
                                                                         copyList1.Remove(copyList1[m]); //수강신청 카피본에서 삭제
+                                                                    }
+                                                                }
+
+                                                                for (int m = 0; m < copyList2.Count; m++)
+                                                                {
+                                                                    if (copyList1[m].number == selcNum && copyList2[m].number == selcNum)
+                                                                    {
+                                                                        copyList2.Remove(copyList2[m]); //관심과목신청 카피본에서 삭제
                                                                     }
                                                                 }
 
@@ -1217,21 +1042,47 @@ namespace TimeTable_J
                                                                 tempTime = copyList1[i].time;
                                                                 timeOverlap();
 
+                                                                bool isSubjectEqual = false;
                                                                 if (creditCheckR <= 24.0)
                                                                 {
-                                                                    for (int j = 0; j < selecClass.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (selecClass[j].className != interestedSelec[i].className && check == true)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < selecClass.Count; j++)
+                                                                        {
+                                                                            if (selecClass[j].className == interestedSelec[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
                                                                         {
                                                                             selecClass.Add(interestedSelec[i]); //수강신청 목록 담기
 
                                                                             for (int m = 0; m < copyList1.Count; m++)
                                                                             {
-                                                                                if (copyList1[m].number == selcNum)
+                                                                                if (copyList1[m].number == selcNum && copyList2[m].number == selcNum)
                                                                                 {
                                                                                     copyList1.Remove(copyList1[m]); //수강신청 카피본에서 삭제
                                                                                 }
                                                                             }
+
+                                                                            for (int m = 0; m < copyList2.Count; m++)
+                                                                            {
+                                                                                if (copyList1[m].number == selcNum && copyList2[m].number == selcNum)
+                                                                                {
+                                                                                    copyList2.Remove(copyList2[m]); //관심과목신청 카피본에서 삭제
+                                                                                }
+                                                                            }
+
+                                                                            makeTimeTable(); // 시간표 작성
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   수강신청 !!성공!!");
@@ -1245,21 +1096,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
                                                                         }
-                                                                        else if (selecClass[j].className == interestedSelec[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-                                                                        else if (check == false)
-                                                                        {
-                                                                            Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
-                                                                            break;
-                                                                        }
-
                                                                     }
                                                                 }
+
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -1337,35 +1177,7 @@ namespace TimeTable_J
 
                                 for (int i = 0; i < selecClass.Count; i++)
                                 {
-                                    Console.WriteLine();
-                                    Console.WriteLine();
-                                    Console.Write("   ");
-                                    Console.Write(selecClass[i].number);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].classNum);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].sameClass);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].className);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].requireOrSelec);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].grade);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].credit);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].room);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].professor);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].language);
-                                    Console.Write("   ");
-                                    Console.WriteLine();
-                                    Console.WriteLine();
+                                    screenBoardZip.printSubject(selecClass[i]);
                                 }
 
                                 Console.WriteLine();
@@ -1432,35 +1244,7 @@ namespace TimeTable_J
 
                                 for (int i = 0; i < selecClass.Count; i++)
                                 {
-                                    Console.WriteLine();
-                                    Console.WriteLine();
-                                    Console.Write("   ");
-                                    Console.Write(selecClass[i].number);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].classNum);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].sameClass);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].className);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].requireOrSelec);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].grade);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].credit);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].room);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].professor);
-                                    Console.Write(" | ");
-                                    Console.Write(selecClass[i].language);
-                                    Console.Write("   ");
-                                    Console.WriteLine();
-                                    Console.WriteLine();
+                                    screenBoardZip.printSubject(selecClass[i]);
                                 }
                                 Console.WriteLine();
                                 Console.WriteLine();
@@ -1500,36 +1284,7 @@ namespace TimeTable_J
 
                                 for (int i = 0; i < allDataList.Count; i++)
                                 {
-                                    Console.WriteLine();
-                                    Console.WriteLine();
-                                    Console.Write("   ");
-                                    Console.Write(allDataList[i].number);
-                                    Console.Write(" | ");
-                                    // 수정~~
-                                    Console.Write(allDataList[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].classNum);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].sameClass);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].className);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].requireOrSelec);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].grade);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].credit);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].time);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].room);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].professor);
-                                    Console.Write(" | ");
-                                    Console.Write(allDataList[i].language);
-                                    Console.Write("   ");
-                                    Console.WriteLine();
-                                    Console.WriteLine();
+                                    screenBoardZip.printSubject(allDataList[i]);
                                 }
 
                                 Console.WriteLine();
@@ -1565,7 +1320,6 @@ namespace TimeTable_J
                                             if (allDataList[i].major.Contains(searchClass))
                                             {
                                                 screenBoardZip.printSubject(allDataList[i]);
-                                               
                                             }
 
                                         }
@@ -1595,35 +1349,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].classNum.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -1652,35 +1378,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].className.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -1709,35 +1407,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].grade.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -1766,35 +1436,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].professor.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -1889,36 +1531,7 @@ namespace TimeTable_J
                                                 if (copyList2[i].major.Contains(searchClass))
                                                 {
                                                     isResultSearch = true;
-
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList2[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList2[i]);
 
                                                 } //검색어 포함여부
 
@@ -1944,8 +1557,8 @@ namespace TimeTable_J
                                                             if (interestedSelec.Count == 0) // 관심과목 리스트가 비어있을때
                                                             {
                                                                 interestedSelec.Add(copyList2[i]); //관심과목 목록 담기
-
                                                                 copyList2.Remove(copyList2[i]); //관심과목 카피본에서 삭제
+                                                                
 
                                                                 Console.WriteLine();
                                                                 Console.WriteLine("  관심과목으로 담았습니다 !!");
@@ -1978,16 +1591,38 @@ namespace TimeTable_J
 
                                                                 creditChecki = Convert.ToDouble(copyList2[i].credit);
                                                                 creditCheckR = creditChecki + selectClassCredit;
-                                                                creditPlace = 24.0 - selectClassCredit;
+                                                                creditPlace = 21.0 - selectClassCredit;
 
-                                                                if (creditCheckR <= 24.0)
+                                                                //시간 중복 작업
+                                                                check = true;
+                                                                tempTime = copyList1[i].time;
+                                                                timeOverlap();
+
+                                                                bool isSubjectEqual = false;
+                                                                if (creditCheckR <= 21.0)
                                                                 {
-                                                                    for (int j = 0; j < interestedSelec.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (interestedSelec[j].className != copyList2[i].className)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < interestedSelec.Count; j++)
                                                                         {
+                                                                            if (interestedSelec[j].className == copyList2[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
+                                                                        {
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             interestedSelec.Add(copyList2[i]); //수강신청 목록 담기
-                                                                            copyList2.Remove(copyList2[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   관심과목으로 담았습니다 !!");
@@ -2001,15 +1636,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (interestedSelec[j].className == copyList2[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
+                                                               
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -2075,35 +1705,7 @@ namespace TimeTable_J
                                                 {
                                                     isResultSearch = true;
 
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList2[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList2[i]);
 
                                                 } //검색어 포함여부
 
@@ -2163,16 +1765,38 @@ namespace TimeTable_J
 
                                                                 creditChecki = Convert.ToDouble(copyList2[i].credit);
                                                                 creditCheckR = creditChecki + selectClassCredit;
-                                                                creditPlace = 24.0 - selectClassCredit;
+                                                                creditPlace = 21.0 - selectClassCredit;
 
-                                                                if (creditCheckR <= 24.0)
+                                                                //시간 중복 작업
+                                                                check = true;
+                                                                tempTime = copyList1[i].time;
+                                                                timeOverlap();
+
+                                                                bool isSubjectEqual = false;
+                                                                if (creditCheckR <= 21.0)
                                                                 {
-                                                                    for (int j = 0; j < interestedSelec.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (interestedSelec[j].className != copyList2[i].className)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < interestedSelec.Count; j++)
                                                                         {
+                                                                            if (interestedSelec[j].className == copyList2[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
+                                                                        {
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             interestedSelec.Add(copyList2[i]); //수강신청 목록 담기
-                                                                            copyList2.Remove(copyList2[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   관심과목으로 담았습니다 !!");
@@ -2186,15 +1810,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (interestedSelec[j].className == copyList2[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
+
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -2260,35 +1879,7 @@ namespace TimeTable_J
                                                 {
                                                     isResultSearch = true;
 
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList2[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList2[i]);
 
                                                 } //검색어 포함여부
 
@@ -2348,16 +1939,38 @@ namespace TimeTable_J
 
                                                                 creditChecki = Convert.ToDouble(copyList2[i].credit);
                                                                 creditCheckR = creditChecki + selectClassCredit;
-                                                                creditPlace = 24.0 - selectClassCredit;
+                                                                creditPlace = 21.0 - selectClassCredit;
 
-                                                                if (creditCheckR <= 24.0)
+                                                                //시간 중복 작업
+                                                                check = true;
+                                                                tempTime = copyList1[i].time;
+                                                                timeOverlap();
+
+                                                                bool isSubjectEqual = false;
+                                                                if (creditCheckR <= 21.0)
                                                                 {
-                                                                    for (int j = 0; j < interestedSelec.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (interestedSelec[j].className != copyList2[i].className)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < interestedSelec.Count; j++)
                                                                         {
+                                                                            if (interestedSelec[j].className == copyList2[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
+                                                                        {
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             interestedSelec.Add(copyList2[i]); //수강신청 목록 담기
-                                                                            copyList2.Remove(copyList2[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   관심과목으로 담았습니다 !!");
@@ -2371,15 +1984,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (interestedSelec[j].className == copyList2[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
+
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -2445,35 +2053,7 @@ namespace TimeTable_J
                                                 {
                                                     isResultSearch = true;
 
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList2[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList2[i]);
 
                                                 } //검색어 포함여부
 
@@ -2533,16 +2113,38 @@ namespace TimeTable_J
 
                                                                 creditChecki = Convert.ToDouble(copyList2[i].credit);
                                                                 creditCheckR = creditChecki + selectClassCredit;
-                                                                creditPlace = 24.0 - selectClassCredit;
+                                                                creditPlace = 21.0 - selectClassCredit;
 
-                                                                if (creditCheckR <= 24.0)
+                                                                //시간 중복 작업
+                                                                check = true;
+                                                                tempTime = copyList1[i].time;
+                                                                timeOverlap();
+
+                                                                bool isSubjectEqual = false;
+                                                                if (creditCheckR <= 21.0)
                                                                 {
-                                                                    for (int j = 0; j < interestedSelec.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (interestedSelec[j].className != copyList2[i].className)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < interestedSelec.Count; j++)
                                                                         {
+                                                                            if (interestedSelec[j].className == copyList2[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
+                                                                        {
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             interestedSelec.Add(copyList2[i]); //수강신청 목록 담기
-                                                                            copyList2.Remove(copyList2[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   관심과목으로 담았습니다 !!");
@@ -2556,15 +2158,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (interestedSelec[j].className == copyList2[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
+
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -2629,35 +2226,7 @@ namespace TimeTable_J
                                                 {
                                                     isResultSearch = true;
 
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
-                                                    Console.Write("   ");
-                                                    Console.Write(copyList2[i].number);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].major);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].classNum);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].sameClass);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].className);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].requireOrSelec);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].grade);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].credit);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].time);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].room);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].professor);
-                                                    Console.Write(" | ");
-                                                    Console.Write(copyList2[i].language);
-                                                    Console.Write("   ");
-                                                    Console.WriteLine();
-                                                    Console.WriteLine();
+                                                    screenBoardZip.printSubject(copyList2[i]);
 
                                                 } //검색어 포함여부
 
@@ -2717,16 +2286,38 @@ namespace TimeTable_J
 
                                                                 creditChecki = Convert.ToDouble(copyList2[i].credit);
                                                                 creditCheckR = creditChecki + selectClassCredit;
-                                                                creditPlace = 24.0 - selectClassCredit;
+                                                                creditPlace = 21.0 - selectClassCredit;
 
-                                                                if (creditCheckR <= 24.0)
+                                                                //시간 중복 작업
+                                                                check = true;
+                                                                tempTime = copyList1[i].time;
+                                                                timeOverlap();
+
+                                                                bool isSubjectEqual = false;
+                                                                if (creditCheckR <= 21.0)
                                                                 {
-                                                                    for (int j = 0; j < interestedSelec.Count; j++)
+                                                                    if (check == false)
                                                                     {
-                                                                        if (interestedSelec[j].className != copyList2[i].className)
+                                                                        Console.Write("   이미 신청한 과목과 수강시간이 중복됩니다. 다시 입력해주세요: ");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        for (int j = 0; j < interestedSelec.Count; j++)
                                                                         {
+                                                                            if (interestedSelec[j].className == copyList2[i].className)
+                                                                            {
+                                                                                isSubjectEqual = true;
+                                                                                Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
+                                                                                break;
+                                                                            }
+
+                                                                        }
+
+                                                                        if (isSubjectEqual == false)
+                                                                        {
+                                                                            makeTimeTable(); // 시간표 작성
                                                                             interestedSelec.Add(copyList2[i]); //수강신청 목록 담기
-                                                                            copyList2.Remove(copyList2[i]); //수강신청 카피본에서 삭제
+                                                                            copyList2.Remove(copyList2[i]); //관심과목신청 카피본에서 삭제
 
                                                                             Console.WriteLine();
                                                                             Console.WriteLine("   관심과목으로 담았습니다 !!");
@@ -2740,15 +2331,10 @@ namespace TimeTable_J
                                                                             ischeck4 = false;
                                                                             ischeck3 = false;
                                                                             ischeck2 = false;
-                                                                            break;
-                                                                        }
-                                                                        else if (interestedSelec[j].className == copyList2[i].className)
-                                                                        {
-                                                                            Console.Write("   이미 담긴 과목입니다. 다시 입력해주세요: ");
-                                                                            break;
                                                                         }
                                                                     }
                                                                 }
+
                                                                 else
                                                                 {
                                                                     Console.WriteLine();
@@ -2825,35 +2411,7 @@ namespace TimeTable_J
 
                                     for (int i = 0; i < interestedSelec.Count; i++)
                                     {
-                                        Console.WriteLine();
-                                        Console.WriteLine();
-                                        Console.Write("   ");
-                                        Console.Write(interestedSelec[i].number);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].classNum);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].sameClass);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].className);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].requireOrSelec);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].grade);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].credit);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].room);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].professor);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].language);
-                                        Console.Write("   ");
-                                        Console.WriteLine();
-                                        Console.WriteLine();
+                                    screenBoardZip.printSubject(interestedSelec[i]);
                                     }
 
                                 Console.WriteLine();
@@ -2874,7 +2432,7 @@ namespace TimeTable_J
                                 Console.WriteLine(interestedClassCredit);
                                 Console.WriteLine();
                                 Console.Write("   남은 관심과목 담기 학점 : ");
-                                creditPlace = 24.0 - interestedClassCredit;
+                                creditPlace = 21.0 - interestedClassCredit;
                                 Console.WriteLine(creditPlace);
                                 Console.WriteLine();
 
@@ -2920,35 +2478,7 @@ namespace TimeTable_J
 
                                     for (int i = 0; i < interestedSelec.Count; i++)
                                     {
-                                        Console.WriteLine();
-                                        Console.WriteLine();
-                                        Console.Write("   ");
-                                        Console.Write(interestedSelec[i].number);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].classNum);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].sameClass);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].className);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].requireOrSelec);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].grade);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].credit);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].room);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].professor);
-                                        Console.Write(" | ");
-                                        Console.Write(interestedSelec[i].language);
-                                        Console.Write("   ");
-                                        Console.WriteLine();
-                                        Console.WriteLine();
+                                    screenBoardZip.printSubject(interestedSelec[i]);
                                     }
                                 Console.WriteLine();
                                 Console.WriteLine();
@@ -2968,7 +2498,7 @@ namespace TimeTable_J
                                 Console.WriteLine(interestedClassCredit);
                                 Console.WriteLine();
                                 Console.Write("   남은 관심과목 담기 학점 : ");
-                                creditPlace = 24.0 - interestedClassCredit;
+                                creditPlace = 21.0 - interestedClassCredit;
                                 Console.WriteLine(creditPlace);
                                 Console.WriteLine();
 
@@ -2990,36 +2520,8 @@ namespace TimeTable_J
 
                                     for (int i = 0; i < allDataList.Count; i++)
                                     {
-                                        Console.WriteLine();
-                                        Console.WriteLine();
-                                        Console.Write("   ");
-                                        Console.Write(allDataList[i].number);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].classNum);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].sameClass);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].className);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].requireOrSelec);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].grade);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].credit);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].time);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].room);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].professor);
-                                        Console.Write(" | ");
-                                        Console.Write(allDataList[i].language);
-                                        Console.Write("   ");
-                                        Console.WriteLine();
-                                        Console.WriteLine();
-                                    }
+                                    screenBoardZip.printSubject(allDataList[i]);
+                                }
 
                                     Console.WriteLine();
                                     Console.WriteLine();
@@ -3053,35 +2555,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].major.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -3111,35 +2585,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].classNum.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -3168,35 +2614,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].className.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -3225,39 +2643,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].grade.Contains(searchClass))
                                             {
-
-
-
-
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -3286,35 +2672,7 @@ namespace TimeTable_J
                                         {
                                             if (allDataList[i].professor.Contains(searchClass))
                                             {
-                                                Console.WriteLine();
-                                                Console.WriteLine();
-                                                Console.Write("   ");
-                                                Console.Write(allDataList[i].number);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].major);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].classNum);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].sameClass);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].className);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].requireOrSelec);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].grade);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].credit);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].time);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].room);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].professor);
-                                                Console.Write(" | ");
-                                                Console.Write(allDataList[i].language);
-                                                Console.Write("   ");
-                                                Console.WriteLine();
-                                                Console.WriteLine();
+                                                screenBoardZip.printSubject(allDataList[i]);
                                             }
 
                                         }
@@ -3542,8 +2900,6 @@ namespace TimeTable_J
                     }//무한반복
                 }
             }
-
-
 
             // 사용자 정의 함수 모음집
             void excelfile()
@@ -19050,19 +18406,6 @@ namespace TimeTable_J
                 }
             }
 
-            /*
-            void timeSplitOverlap()
-            {
-                string[] timeArr = new string[11];
-                List<string> timeList = new List<string>();
-
-                for (int i = 0; i < selecClass.Count; i++)
-                {
-                    timeArr = selecClass[i].time.Split(',');
-                   // timeList.Add(timeArr);
-                }
-            }
-            */
         }
     }
 }

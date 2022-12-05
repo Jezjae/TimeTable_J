@@ -164,40 +164,39 @@ namespace TimeTable_J
             Console.Write(" 원하시는 메뉴의 숫자(1~8)를 입력해주세요. : ");
         }
 
-
-
-        public void printSubject(ClassSignUpMain allData)
+        public void printSubject(ClassSignUpMain dataList)
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.Write("   ");
-            Console.Write(allData.number);
+            Console.Write(dataList.number);
             Console.Write(" | ");
-            Console.Write(allData.major);
+            Console.Write(dataList.major);
             Console.Write(" | ");
-            Console.Write(allData.classNum);
+            Console.Write(dataList.classNum);
             Console.Write(" | ");
-            Console.Write(allData.sameClass);
+            Console.Write(dataList.sameClass);
             Console.Write(" | ");
-            Console.Write(allData.className);
+            Console.Write(dataList.className);
             Console.Write(" | ");
-            Console.Write(allData.requireOrSelec);
+            Console.Write(dataList.requireOrSelec);
             Console.Write(" | ");
-            Console.Write(allData.grade);
+            Console.Write(dataList.grade);
             Console.Write(" | ");
-            Console.Write(allData.credit);
+            Console.Write(dataList.credit);
             Console.Write(" | ");
-            Console.Write(allData.time);
+            Console.Write(dataList.time);
             Console.Write(" | ");
-            Console.Write(allData.room);
+            Console.Write(dataList.room);
             Console.Write(" | ");
-            Console.Write(allData.professor);
+            Console.Write(dataList.professor);
             Console.Write(" | ");
-            Console.Write(allData.language);
+            Console.Write(dataList.language);
             Console.Write("   ");
             Console.WriteLine();
             Console.WriteLine();
         }
+
 
 
     }
